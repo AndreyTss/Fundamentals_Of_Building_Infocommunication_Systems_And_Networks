@@ -20,7 +20,7 @@ def filter(time, signal, fl, fh):
             spectr[i] *= 0+0j
     return np.fft.ifft(spectr)
 
-pulse = False
+pulse = True
 auto_scale = True #Автомасштабирование графиков сигналов по времени
 
 nbt = 8  #8 бит
@@ -88,7 +88,7 @@ for i in range(n//nbt//npp):
         sig7[indx] = sig6[i*nbt*npp]
 
 #Фильтрация дискретизированного импульсного сигнала (АИМ)
-sig8 = filter(time, sig7, 0.3, 3.4)
+sig8 = filter(time, sig6, 0.3, 3.4)
 
 #Построение графиков сигналов на этапе АЦП
 fig, ax = plt.subplots()
